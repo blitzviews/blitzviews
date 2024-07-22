@@ -281,43 +281,14 @@ socket.on('check-sub',(data)=>{
   }
 })
 function runPlay(code){
-  /*var idplay = document.getElementById('hideValue').value
-      if(Hls.isSupported()){
-          const hls = new Hls()
-  
-      video.muted=false 
-      hls.loadSource(url)        
-      hls.on(Hls.Events.MANIFEST_PARSED,(event,data)=>{           
-       const availableQualities = hls.levels.map((l)=> l.height)
-        defaultOptions.controls = [
-                  'play-large',
-                  'restart',
-                  'rewind',
-                  'play',
-                  'fast-forward',
-                  'progress',
-                  'current-time',
-                  'duration',
-                  'mute',
-                  'volume',
-                  'captions',
-                  'settings',
-                  'pip',
-                  'airplay',
-                  'autoPlay',
-                  'fullscreen'
-        ];
-        new Plyr(video, defaultOptions)
-        
-      })       
-     hls.attachMedia(video)              
-     window.hls = hls
-  }
-  const iframe = document.createElement('iframe')
-  iframe.src=url
-  iframe.width='100%'
-  iframe.height="50%"
-  iframe.scrolli=*/
+  setTimeout(() => {
+    const ar = {
+      period: new Date(),
+      count:1,
+      channelcode:code
+    }
+    socket.emit('send-data-collected', ar)
+  }, 30000);
   document.querySelector('#iframeLivePlayer').src='https://pv0wr7s.localto.net//media/?url_code='+code
 }
 function userdetails(id){
