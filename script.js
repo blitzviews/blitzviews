@@ -264,21 +264,23 @@ socket.on('login',(data)=>{
     }
   }
 })
-window.addEventListener('mouseover',()=>{
-  if(window.localStorage.getItem('user_num') === '') {}
-  else socket.emit('check-sub', Number(window.localStorage.getItem('user_num')))
-})
 function checksubscriber(params) {
-  socket.emit('check-sub',params)
+  return new Promise((resolve, reject)=>{
+    socket.emit('check-sub',params)
+  })
 }
 socket.on('check-sub',(data)=>{
-  if(data === null){
-   runafterload()
-  }else if(data !== null){
+  if(data.gateway == 'Free'){   
+    $('#pagesToDisplay').addClass('d-flex justify-content-center')
+    displayMenu.style.display="block"
+    document.getElementById('mysubscription').style.display="none"
+    watching()
+  }else if(data.gateway == 1){
+    watching()
      $('#pagesToDisplay').addClass('d-flex justify-content-center')
     displayMenu.style.display="block"
     document.getElementById('mysubscription').style.display="none"
-  }
+  }else if(data.gateway === 0) runafterload()
 })
 function runPlay(code){
   setTimeout(() => {
@@ -591,8 +593,15 @@ fb.addEventListener('click',()=>{
     }
     return "";
 }
+async function checkUserSub(){
+  const checkS = await checksubscriber(window.localStorage.getItem('user_num'))
+  if (checkS === true) {
+    watching()
+  }else{
+    alert('Please Pay Your Subscription.')
+  }
+}
 function channelNo(num){
-  checksubscriber(window.localStorage.getItem('user_num'))
   switch(num){
     case 1:
       tvchannels(num)
@@ -604,7 +613,7 @@ function channelNo(num){
       tvchannels(num)
       break
     case 4:
-      watching()
+      checkUserSub()
       break
     case 5:
       webCast()
@@ -619,10 +628,7 @@ function channelNo(num){
       checkUserDatingReg()
       break
   }
- // displayMenu.style.display="none"
- // channels.style.display="flex"
- const data ={id:window.localStorage.getItem('user_num')}
-  socket.emit('check-subscription', data)
+
 }
 function vod(){
      document.querySelector('.displayview').style.display="none"
