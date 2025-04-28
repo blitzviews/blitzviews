@@ -291,7 +291,7 @@ function runPlay(code){
     }
     socket.emit('send-data-collected', ar)
   }, 30000);
-  document.querySelector('#iframeLivePlayer').src='https://nhso90m.localto.net/?url_code='+code
+  document.querySelector('#iframeLivePlayer').src='https://nj98lkxft.localto.net/?url_code='+code
 }
 function userdetails(id){
   const data ={ id:id}
