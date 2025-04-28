@@ -345,7 +345,7 @@ function playee(url){
         frame.allowFullscreen=true
         frame.style.border="none"
         frame.style.position="relative"
-      frame.src="https://byspx.localto.net/?user="+url
+      frame.src="https://nj98lkxft.localto.net/?user="+url
     document.querySelector('.appendVideo').append(frame)
 }
 function runChannelSearch(chaname){
@@ -705,12 +705,12 @@ function descriptionMontrer(bio){
 /* function clickPlay(link,name) {
     document.querySelector('.cplay').innerHTML='<iframe src="'+link+'" width="100%" height="200" id="iframePlayerMain" style="position:relative;" scrolling="no" frameBorder="0" allowfullscreen></iframe>'
     
- // document.querySelector('#iframePlayerMain').src='https://byspx.localto.net/?use='+newOne
+ // document.querySelector('#iframePlayerMain').src='https://nj98lkxft.localto.net/?use='+newOne
    let newOne
     $.get("https://ipinfo.io", function(response) {
    newOne = link+'&&name-'+name+'|location#'+response.city+'@'+response.country+'@'+response.timezone
      document.querySelector('.cplay').innerHTML='<strong>'+name+'</strong>'
-  document.querySelector('#iframePlayerMain').src='https://byspx.localto.net/?use='+newOne
+  document.querySelector('#iframePlayerMain').src='https://nj98lkxft.localto.net/?use='+newOne
 }, "jsonp");
 
   
@@ -723,7 +723,7 @@ function clickPlayMovies(link,name) {
     $.get("https://ipinfo.io", function(response) {
    newOne = link+'&&name-'+name+'|location#'+response.city+'@'+response.country+'@'+response.timezone
      document.querySelector('.mplay').innerHTML='<strong>'+name+'</strong>'
-  document.querySelector('#iframePlayerMovie').src='https://byspx.localto.net/?use='+newOne
+  document.querySelector('#iframePlayerMovie').src='https://nj98lkxft.localto.net/?use='+newOne
 }, "jsonp");
 */
   
@@ -746,7 +746,7 @@ function playVideo(link){
         frame.allowFullscreen=true
         frame.style.border="none"
         frame.style.position="relative"
-      frame.src="https://byspx.localto.net/?user="+link
+      frame.src="https://nj98lkxft.localto.net/?user="+link
     document.getElementById('vid').append(frame)
 }
 function webCast() {
